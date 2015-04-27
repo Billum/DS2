@@ -4,20 +4,20 @@ namespace Opdracht2
 {
     class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
             string s = Console.ReadLine();
             string[] input = s.Split(' ');
 
-            long[] alfa = new long[7];
+            long[] alfa = new long[] {14, 1, 0, 22, 23, 24, 10000};
             long x = Int64.Parse(input[0]);
             long beta = Int64.Parse(input[1]);
             int gamma = int.Parse(input[2]);
 
-            for (int i = 0; i < alfa.Length; i++)
-            {
-                alfa[i] = Int64.Parse(Console.ReadLine());
-            }
+            //for (int i = 0; i < alfa.Length; i++)
+            //{
+            //    alfa[i] = Int64.Parse(Console.ReadLine());
+            //}
 
             Levels[] levels = makeLevels(x, beta, gamma);
 
@@ -44,13 +44,14 @@ namespace Opdracht2
         }
         static void findLevel(Levels[] levels, long alfa, long gamma)
         {
-            for (int i = 0; i < levels.Length; i++)
+            for (int i = 0; i < gamma; i++)
             {
                 if (alfa >= levels[i].begin && alfa <= levels[i].eind)
                 {
                     Console.WriteLine(i + 1);
+                    break;
                 }
-                else if (alfa > levels[levels.Length - 1].eind)
+                else if (alfa > levels[gamma - 1].eind)
                 {
                     Console.WriteLine(gamma);
                     break;
